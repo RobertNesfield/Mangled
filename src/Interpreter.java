@@ -1,3 +1,6 @@
+import java.io.File;
+import java.util.Scanner;
+
 public class Interpreter{
 	private static char acc;
 	private static byte ptr;
@@ -72,10 +75,14 @@ public class Interpreter{
 				case'j':
 					pos=jump(code,mem[ptr&0xFF].peek());
 					break;
-				case'C':
-					pos=code.indexOf('/',pos);
+				case'{':
+					pos=code.indexOf('}',pos);
 					break;
 				case'\n':
+					break;
+				case'\t':
+					break;
+				case' ':
 					break;
 				case'J':
 					break;
@@ -85,15 +92,15 @@ public class Interpreter{
 		}
 	}
 	
-	private static int jump(String code,int jumps){
-		if(count(code)==0)return code.length();
+	private static int jump(String code,int jumps)throws Exception{
+		if(count(code)==0)throw new Exception("Attempt to jump without destination jump point");
 		
 		jumps%=count(code)+1;
 		int pos=-1;
 		
 		while(jumps>=0){
 			do pos=code.indexOf('J',pos+1);
-			while(code.indexOf('/',pos+1)>=0&&code.indexOf('/',pos+1)>code.indexOf('C',pos+1));
+			while(code.indexOf('}',pos+1)>=0&&code.indexOf('}',pos+1)>code.indexOf('{',pos+1));
 			jumps--;
 		}
 		
@@ -102,16 +109,13 @@ public class Interpreter{
 	
 	private static int count(String code){
 		int num=0;
-		for(int i=0;i<code.length();i++)if(code.charAt(i)=='J'&&(code.indexOf('/',i)<0||(code.indexOf('C',i)>0&&code.indexOf('C',i)<code.indexOf('/',i))))num++;
+		for(int i=0;i<code.length();i++)if(code.charAt(i)=='J'&&(code.indexOf('}',i)<0||(code.indexOf('{',i)>0&&code.indexOf('{',i)<code.indexOf('}',i))))num++;
 		return num;
 	}
 	
 	public static void main(String[]args){
 		try{
-			run("JriPlzOPrpplJrSplzQ","!dlroW olleH");
-			System.out.println(out);
-			
-			run("HtttOOSttoPaoSppHTooSSPlOOOSPlOhTTSPlpHtoooSrrpSOOOSrpStOOSllpOS","");
+			run(new Scanner(new File("Program.mngl")).useDelimiter("\\Z").next(),"Test Input");
 			System.out.println(out);
 		}catch(Exception e){
 			System.out.println(e);

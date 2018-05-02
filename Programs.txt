@@ -1,0 +1,32 @@
+//Hello World!
+HtttOOSttoPaoSppHTooSSPOOOSPrOhTTSPrpllHtoooSpSOOOSpStOOSrpOS
+
+//Reverse Input
+JriPlzOPrpplJrSplz
+
+//Commands
+H - add 100 to accumulator's value
+T - add 10 to accumulator's value
+O - add 1 to accumulator's value
+h - sub 100 from accumulator's value
+t - sub 10 from accumulator's value
+o - sub 1 from accumulator's value
+a - add current stack's top value to accumulator, doesn't remove value from stack
+s - sub current stack's top value from accumulator, doesn't remove value from stack
+P - push accumulator's value to current stack
+p - pop current stack's top value into accumulator, does remove value from stack
+i - overwrite accumulator with next input value
+I - output the accumulator's value as an integer
+S - output the accumulator's value as a character
+l - move left along the array of stacks
+r - move right along the array of stacks
+J - mark a point that can be jumped to
+j - jump to a jump point dependent on current stack's top value mod the number of jump points (if 0, go to first; if 1, go to second...)
+z - same as j, but only if the accumulator's value isn't 0
+Z - same as j, but only if the accumulator's value is 0
+Q - terminate execution
+{ - start of comment
+} - end of comment
+newline, tab and space - no effect, but permitted
+
+all other characters (outside of comments) are banned and will result in an error if the program attempts to execute them
