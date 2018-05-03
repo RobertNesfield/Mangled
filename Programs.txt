@@ -4,6 +4,9 @@ HtttOOSttoPaoSppHTooSSPOOOSPrOhTTSPrpllHtoooSpSOOOSpStOOSrpOS
 //Reverse Input
 JriPlzOPrpplJrSplz
 
+//Output from 1 to 100 with an E N H A N C E D 42
+OIToPrtOPrPrJlllpSPrpOPrttttooZTTTTOOIhrzQJrHHHHTTIj
+
 //Commands
 H - add 100 to accumulator's value
 T - add 10 to accumulator's value

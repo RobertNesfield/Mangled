@@ -13,7 +13,7 @@ public class Interpreter{
 		ptr=0;
 		out="";
 		
-		for(int pos=0;pos<code.length()&&code.charAt(pos)!='Q';pos++){
+		for(int pos=0;pos<code.length();pos++){
 			switch(code.charAt(pos)){
 				case'O':
 					acc++;
@@ -95,7 +95,7 @@ public class Interpreter{
 	private static int jump(String code,int jumps)throws Exception{
 		if(count(code)==0)throw new Exception("Attempt to jump without destination jump point");
 		
-		jumps%=count(code)+1;
+		jumps%=count(code);
 		int pos=-1;
 		
 		while(jumps>=0){
