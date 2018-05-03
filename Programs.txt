@@ -5,7 +5,7 @@ HtttOOSttoPaoSppHTooSSPOOOSPrOhTTSPrpllHtoooSpSOOOSpStOOSrpOS
 JriPlzOPrpplJrSplz
 
 //Output from 1 to 100 with an E N H A N C E D 42
-OIToPrtOPrPrJlllpSPrpOPrttttooZTTTTOOIhrzQJrHHHHTTIj
+OIToPrtOPrPrJlllpSPrpOPrIttttooZlpPrhrzQJrIj
 
 //Commands
 H - add 100 to accumulator's value
