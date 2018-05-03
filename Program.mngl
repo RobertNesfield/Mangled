@@ -1,1 +1,10 @@
-OIToPrtOPrPrJlllpSPrpOPrIttttooZlpPrhrzQJrIj
+OI		{Output 1}
+ToP		{Put 10 (linefeed) in first stack}
+rtOPrPr	{put 1 in second and third stacks}
+Jlll	{Start loop and return to first stack}
+pSP		{Get value, print, then put back in stack}
+rpOPrI	{Go to second stack, increment and clone value, then print}
+ttttooZ	{If value is 42, go to second jump point}
+lpPr	{Re-clone value from second stack}
+hrzQ	{End if value is 100, otherwise jump to first loop}
+JrIj	{Output 0 and return to first loop}

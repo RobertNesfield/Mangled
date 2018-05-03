@@ -13,6 +13,11 @@ public class Interpreter{
 		ptr=0;
 		out="";
 		
+		code=code.replace("\n","");
+		code=code.replace("\t","");
+		code=code.replace(" ","");
+		while(code.contains("{"))code=code.substring(0,code.indexOf('{'))+code.substring(code.indexOf('}')+1);
+		
 		for(int pos=0;pos<code.length();pos++){
 			switch(code.charAt(pos)){
 				case'O':
@@ -75,15 +80,6 @@ public class Interpreter{
 				case'j':
 					pos=jump(code,mem[ptr&0xFF].peek());
 					break;
-				case'{':
-					pos=code.indexOf('}',pos);
-					break;
-				case'\n':
-					break;
-				case'\t':
-					break;
-				case' ':
-					break;
 				case'J':
 					break;
 				default:
@@ -99,8 +95,7 @@ public class Interpreter{
 		int pos=-1;
 		
 		while(jumps>=0){
-			do pos=code.indexOf('J',pos+1);
-			while(code.indexOf('}',pos+1)>=0&&code.indexOf('}',pos+1)>code.indexOf('{',pos+1));
+			pos=code.indexOf('J',pos+1);
 			jumps--;
 		}
 		
@@ -109,7 +104,7 @@ public class Interpreter{
 	
 	private static int count(String code){
 		int num=0;
-		for(int i=0;i<code.length();i++)if(code.charAt(i)=='J'&&(code.indexOf('}',i)<0||(code.indexOf('{',i)>0&&code.indexOf('{',i)<code.indexOf('}',i))))num++;
+		for(int i=0;i<code.length();i++)if(code.charAt(i)=='J')num++;
 		return num;
 	}
 	
